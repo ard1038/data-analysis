@@ -2,11 +2,11 @@
 
 Inspired by the ***CRISP-DM*** data analysis framework, the following summary uses statistical analysis and visualizations to explore the viability of a new business opportunity, to suggest if further investment is worthwhile to further mature the opportunity.
 
-The summaries and hypotheses indicated below are supported by the raw technical and statistical evaluations found within this [Jupyter Notebook](https://github.com/ard1038/data-analysis/blob/master/couponing-proposal-pa1/eda-digital-couponing.ipynb), which
+The summaries and hypotheses indicated below are supported by the raw technical and statistical evaluations found within this [Jupyter Notebook](https://github.com/ard1038/data-analysis/blob/master/couponing-proposal-pa1/eda-digital-couponing.ipynb).
 
 ## 1. Business Understanding
 
-Imagine driving through a town, and a coupon is delivered to your cell phone for a restaraunt near where you are driving. 
+Imagine driving through a town, and a coupon is delivered to your cell phone for a restaraunt near where you are driving. To better understand the performance and viability of digital coupon acceptance:
 * Would you accept that coupon and take a short detour to the restaraunt?
 * Would you accept the coupon but use it on a subsequent trip? 
 * Would you ignore the coupon entirely? 
@@ -81,8 +81,8 @@ New composite columns were created and plotted against coupon acceptance to surf
 * **Cohort:** direction, distance (`distanceDirection`)
 * **Cohort:** direction, distance, time of day (`distanceDirectionTime`)
 * **Cohort:** direction, distance, time of day, expiration time (`distanceDirectionTimeExpiration`)
-* **Cohort:** direction, distance, time of day, passengers 
-* **Cohort:** direction, distance, time of day, passengers, coupon
+* **Cohort:** direction, distance, time of day, passenger (`distanceDirectionTimePassenger`)
+* **Cohort:** direction, distance, time of day, passenger, coupon (`distanceDirectionTimePassengerCoupon`)
 
 Findings from these analyses are indicated within section 3, below.
 
@@ -135,7 +135,7 @@ From reviewing the feature plots representing occurrences of each's unique value
 
 ## 4. Next Steps
 
-### 4.1 Interpolating Missing Data:
+### 4.1 Explore Different Approaches to Interpolating the Missing Data:
 * Seek any additional data/correlations to interpolate values for `car`
 * Can the missing data for visits (`CoffeeHouse`, `Restaurant20To50`, `CarryAway`, `RestaurantLessThan20`, `Bar`) be interpolated some correlative means, as statistical interpolation would not be appropriate for the categorical values (converting category values to numerical representation would be incorrect, based on the implied ranges)
 
