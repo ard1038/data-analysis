@@ -46,7 +46,7 @@ Once cleansed, the data contained 12.6K records, a more than sufficient volume t
 ### 2.1 Data Cleansing
 
 * **Duplicate observations:** The dataset contained less than 1% duplicated data rows, which were removed from the dataset to prevent skewing the analysis.
-* **Missing data** While it would be nice to remove all missing data to retain a fully populated set, the decisions from our investigation in 2.4 within the notebook are as follows:
+* **Missing data** Upon analyzing the dataset for completeness *(ref: Image: "Heatmap Visualizing the Spread of Missing Data")*, while it would be nice to remove all missing data to retain a fully populated set, the decisions from our investigation in 2.4 within the notebook are as follows:
     * `car` feature review:
         * **Analysis:** It contains ***more than 99% missing values***, and cannot consider it in modeling even if it would be valuable information.
         * **Decision:** Rather than drop it, ***keep it for now*** in case there's further granular (anecdotal) insights as we dive deeper
@@ -68,6 +68,8 @@ Once cleansed, the data contained 12.6K records, a more than sufficient volume t
     * **Ignored or redundant data:**
         * We can only consider one of the two `direction*` features as they are inverses of each other
         * We will treat `car` feature as anecdotal information, due to significant missing data
+
+![Heatmap Visualizing the Spread of Missing Data](images/pa1-heatmap-missing-data.png)
 
 ### 2.2 Bivariate Analysis
 
@@ -101,11 +103,12 @@ From reviewing the feature plots representing occurrences of each's unique value
 ### 3.2 Most coupons offered were:
 * for businesses at least 5 minutes away, largely between 15-25 minutes from the driver's location, but in the opposite direction they were travelling in (`toCoupon_GEQ*`, `direction*`)
 * largely offered during peak driving times (in the US), at 7am and 6pm (`time`)
-* to coffee shops, followed by less expensive restaurants (`coupon`)
+* for coffee shops, followed by less expensive restaurants (`coupon`)
+</br><img src="images/pa1-most-offered-coupon-types.png" alt="Coupons By Type" title="Coupons By Type"/></br>
 * targeting drivers that infrequently went the different businesses types offered (`Bar`, `CoffeeHouse`, `CarryAway`, `RestaurantsLessThan20`, `Restaurant20To50`)
 
-### 3.3 Coupon acceptance was ***more likely*** when:
-* The driver wasn't rushing to work or back home (`destination`)
+### 3.3 Coupon acceptance was ***generally more likely*** when:
+* The driver wasn't rushing to work or back home (`destination`)</br><img src="images/pa1-most-offered-destination.png" alt="Coupons Acceptance By Destination" title="Coupons Acceptance By Destination"/></br>
 * The weather was both sunny and hot (`weather`, `temperature`)
 * Friend(s) were in the car, suggesting perhaps they noticed the coupon soon after it was offered, minimizing time to business destination. (`passengers`)
 * The type of coupon was for cheaper restaurants or carry out/take away
@@ -118,7 +121,7 @@ From reviewing the feature plots representing occurrences of each's unique value
 * The driver was less than 15 minutes past the coupon's location (`distanceDirection`)
 * The driver was offered a coupon either mid-morning (10am) or mid-afternoon (2pm), and within 25 minutes from the business location (`distanceDirectionTime`). The likelihood of accepting the coupon increases further if it also allowed for 1 day before expiring. (`distanceDirectionTimeExpiration`)
 
-### 3.4 Coupon acceptance was ***less likely*** when:
+### 3.4 Coupon acceptance was ***generally less likely*** when:
 * It was offered early morning or late at night (`time`)
 * The driver has children (not necessarily in the car, TBD) (`has_children`)
 * The driver had already driven 25 minutes or more past the coupon's location (`distanceDirection`)
