@@ -93,48 +93,55 @@ Findings from these analyses are indicated within section 3, below.
 From reviewing the feature plots representing occurrences of each's unique values (above), the following is observed:
 
 ### 3.1 Most targeted drivers/customers:
-* were either unemployed or students (`occupation`)
-* were young adults, between ages 21-31 (`age`)
-* were driving predominantly driving alone, with no urgent place to go, in hot and sunny weather (`passenger`, `destination`, `weather`, `temperature`)
-* were fairly comparable in gender and slightly favored those without children (`gender`, `has_children`)
-* either had some college education or held an undergraduate degree (`education`)
-* made almost, or less than half of the [average US Househould income](https://www.statista.com/statistics/203183/percentage-distribution-of-household-income-in-the-us/ "from: Statista.com") (`income`)
+* Were either unemployed or students (`occupation`)
+* Were young adults, between ages 21-31 (`age`)
+* Were driving predominantly driving alone, with no urgent place to go, in hot and sunny weather (`passenger`, `destination`, `weather`, `temperature`)
+* Were fairly comparable in gender and slightly favored those without children (`gender`, `has_children`)
+* Either had some college education or held an undergraduate degree (`education`)
+* Made almost, or less than half of the [average US Househould income](https://www.statista.com/statistics/203183/percentage-distribution-of-household-income-in-the-us/ "from: Statista.com") (`income`)
 
 ### 3.2 Most coupons offered were:
-* for businesses at least 5 minutes away, largely between 15-25 minutes from the driver's location, but in the opposite direction they were travelling in (`toCoupon_GEQ*`, `direction*`)
-* largely offered during peak driving times (in the US), at 7am and 6pm (`time`)
-* for coffee shops, followed by less expensive restaurants (`coupon`)
+* For businesses at least 5 minutes away, largely between 15-25 minutes from the driver's location, but in the opposite direction they were travelling in (`toCoupon_GEQ*`, `direction*`)
+* Largely offered during peak driving times (in the US), at 7am and 6pm (`time`)
+* For coffee shops, followed by less expensive restaurants (`coupon`)
 </br><img src="images/pa1-most-offered-coupon-types.png" alt="Coupons By Type" title="Coupons By Type"/></br>
-* targeting drivers that infrequently went the different businesses types offered (`Bar`, `CoffeeHouse`, `CarryAway`, `RestaurantsLessThan20`, `Restaurant20To50`)
+* Targeting drivers that infrequently went the different businesses types offered (`Bar`, `CoffeeHouse`, `CarryAway`, `RestaurantsLessThan20`, `Restaurant20To50`)
 
 ### 3.3 Coupon acceptance was ***generally more likely*** when:
-* The driver wasn't rushing to work or back home (`destination`)</br><img src="images/pa1-most-offered-destination.png" alt="Coupons Acceptance By Destination" title="Coupons Acceptance By Destination"/></br>
-* The weather was both sunny and hot (`weather`, `temperature`)
-* Friend(s) were in the car, suggesting perhaps they noticed the coupon soon after it was offered, minimizing time to business destination. (`passengers`)
-* The type of coupon was for cheaper restaurants or carry out/take away
-* The driver could go back later to use the coupon within one day (`expiration`)
-* It were offered to drivers in their 20s and early 30s and single (`age`, `maritalStatus`)
-* The driver only had some college, but not yet a degree (though those with undergrad degree still had higher acceptance than rejection) (`education`)
-* The driver was a student, though the highest amount of coupons targeted those that were unemployed (`occupation`)
-* The driver's income was below the national average (US), though oddly drivers making the highest incomes also accepted coupons (`income`)
-* The driver visits the businesses aligned with the coupon type a few times per month (consistent across all coupon types) (`Bar`, `CoffeeHouse`, `CarryAway`, `RestaurantsLessThan20`, `Restaurant20To50`)
-* The driver was less than 15 minutes past the coupon's location (`distanceDirection`)
-* The driver was offered a coupon either mid-morning (10am) or mid-afternoon (2pm), and within 25 minutes from the business location (`distanceDirectionTime`). The likelihood of accepting the coupon increases further if it also allowed for 1 day before expiring. (`distanceDirectionTimeExpiration`)
+* The driver wasn't rushing to work or back home (`destination`)</br><img src="images/pa1-acceptance-rate-destination.png" alt="Coupons Acceptance By Destination" title="Coupons Acceptance By Destination"/></br>
+* The weather was both sunny and hot (`weather`, `temperature`)</br><img src="images/pa1-acceptance-rate-weather.png" alt="Coupons Acceptance By Weather" title="Coupons Acceptance By Weather"/></br>
+* Friend(s) were in the car, suggesting perhaps they noticed the coupon soon after it was offered, minimizing time to business destination. (`passengers`)</br><img src="images/pa1-acceptance-rate-passengers.png" alt="Coupons Acceptance By Passenger" title="Coupons Acceptance By Passenger"/></br>
+* The type of coupon was for cheaper restaurants or carry out/take away, though more coupons were offered for coffee houses (`coupon`)</br><img src="images/pa1-acceptance-rate-passengers.png" alt="Coupons Acceptance By Passenger" title="Coupons Acceptance By Passenger"/></br>
+* The driver could go back later to use the coupon within one day, though the two hour coupon showed some success when delivered (`expiration`)
+* Offered at either 2PM or 10AM, though larger volumes were offered during 7AM and 6pm (aligning with general work commute timing) (`time`)</br><img src="images/pa1-acceptance-rate-totals-coupon.png" alt="Coupons Acceptance By Coupon Type" title="Coupons Acceptance By Coupon Type"/></br>
+* Offered to drivers in their 20s.  While the "under 21" group had the least volume of coupons offered, they had the highest acceptance rate, suggesting they should potentially be targeted more (likely college-age/students?) (`age`)</br><img src="images/pa1-acceptance-rate-totals-age.png" alt="Coupons Acceptance By Age" title="Coupons Acceptance By Age"/></br>
+* Offered to drivers that were single, suggesting more schedule/decision making flexibility, or propensity to enter social situations ("going out") (`maritalStatus`)</br><img src="images/pa1-acceptance-rate-marital.png" alt="Coupons Acceptance By Marital Status" title="Coupons Acceptance By Marital Status"/></br>
+* The driver that had some college, but not yet a degree, though those with only a high school degree had a higher acceptance rate (low volume offered) (`education`)</br><img src="images/pa1-acceptance-rate-totals-education.png" alt="Coupons Acceptance By Education" title="Coupons Acceptance By Education"/></br>
+* The driver was in either healthcare support, construction and extraction, healthcare practitioners and technical; though the highest amount of coupons targeted those that were unemployed or students, which instinctually would make sense, but did not yeild the highest acceptance rates (`occupation`)</br><img src="images/pa1-acceptance-rate-totals-occupation.png" alt="Coupons Acceptance By Occupation" title="Coupons Acceptance By Occupation"/></br>
+* The driver's income was below the national average (US), though oddly drivers making the highest incomes also accepted coupons (`income`)</br><img src="images/pa1-acceptance-rate-totals-income.png" alt="Coupons Acceptance By Income" title="Coupons Acceptance By Income"/></br>
+* The driver was less than 15 minutes from the coupon's location (`distanceDirection`)</br><img src="images/pa1-acceptance-rate-destinationdirection.png" alt="Coupons Acceptance By Proximity" title="Coupons Acceptance By Proximity"/></br>
+* Considering combinations of proximity, time of day and expiration time. (`distanceDirectionTimeExpiration`)</br><img src="images/pa1-acceptance-rate-distancedirectiontimeexpiration.png" alt="Coupons Acceptance By Distance, Direction, Time of Day, Expiration Time" title="Coupons Acceptance By Distance, Direction, Time of Day, Expiration Time"/></br>
 
-### 3.4 Coupon acceptance was ***generally less likely*** when:
-* It was offered early morning or late at night (`time`)
-* The driver has children (not necessarily in the car, TBD) (`has_children`)
-* The driver had already driven 25 minutes or more past the coupon's location (`distanceDirection`)
-
-### 3.5 Deep dive into "Bar" coupons:
-* Of the total population of customers that were served a bar coupon, *less than half (~41%) accepted the coupon.
-* customers that visit a bar more than three times per month are **twice as likely to accept a "bar" coupon** than those that visit a bar three or less times a month.
-* customers over 25 years of age that visit a bar one or more times per month are **twice as likely to accept a "bar" coupon** than those that are younger than 25 and visit a bar less frequently.
-* customers who didn't work in Farming/Fishing/Forestry, were travelling with an adult passenger, and visit a bar one or more times per month are **twice as likely to accept a "bar" coupon** than those that worked in Farming/Fishing/Forestry, were travelling either alone or with kids, and visited a bar less than once a month.
-* customers who fit any of the following three cohorts were **1.4 times as likely to accept a "bar" coupon** than those that were not in any.
+### 3.4 Deep dive into "Bar" coupons:
+* Of the total population of customers that were served a bar coupon, *less than half (~41%) accepted the coupon.</br><img src="images/pa1-bar-acceptance-rate.png" alt="Bar Coupons Acceptance" title="Bar Coupons Acceptance"/></br>
+* Customers that visit a bar more than three times per month are **twice as likely to accept a "bar" coupon** than those that visit a bar three or less times a month.</br><img src="images/pa1-bar-acceptance-visit-cohorts.png" alt="Bar Coupons Acceptance by Visitation Cohorts" title="Bar Coupons Acceptance by Visitation Cohorts"/></br>
+* Customers over 25 years of age that visit a bar one or more times per month are **twice as likely to accept a "bar" coupon** than those that are younger than 25 and visit a bar less frequently.</br><img src="images/pa1-bar-acceptance-visits-age.png" alt="Bar Coupons Acceptance by Visitation and Age Cohorts" title="Bar Coupons Acceptance by Visitation and Age Cohorts"/></br>
+* Customers who didn't work in Farming/Fishing/Forestry, were travelling with an adult passenger, and visit a bar one or more times per month are **twice as likely to accept a "bar" coupon** than those that worked in Farming/Fishing/Forestry, were travelling either alone or with kids, and visited a bar less than once a month.</br><img src="images/pa1-bar-acceptance-visits-passenger-occupation.png" alt="Bar Coupons Acceptance by Visitation, Passenger, Occupation" title="Bar Coupons Acceptance by Visitation, Passenger, Occupation"/></br>
+* Customers who fit any of the following three cohorts were **1.4 times as likely to accept a "bar" coupon** than those that were not in any.</br><img src="images/pa1-bar-acceptance-merged-cohorts.png" alt="Bar Coupons Acceptance by Merged Cohorts" title="Bar Coupons Acceptance by Merged Cohorts"/></br>
     * go to bars more than once a month, had passengers that were not a kid, and were not widowed OR
     * go to bars more than once a month and are under the age of 30 OR
     * go to cheap restaurants more than 4 times a month and income is less than 50K.
+
+
+### 3.5 Insights regarding "Restaurant<20" (cheaper restaurants) coupons:
+* Generally, less expensive restaurant coupons have a reasonably good acceptance rate. 
+* Time of day and who's in the car with the driver does play a role in acceptance. 
+    * For instance, when with friends or partner, acceptance of these coupons at 6pm is very strong (aligning with dinner time for many). 
+    * When driving with kids in the vehicle, mid afternoon and evening times show higher acceptance rates, aligning with after-school pickups and dinner time.
+    * Interestingly, when driving alone in the evening, coupon acceptence is very low, but much stronger during the middle of the day, perhaps suggesting many survey recipients did not prefer to eat dinner alone, and may be inclined to grab a late lunch / snack at whim when alone (provided it was nearby)
+
+</br><img src="images/pa1-cheaprestaurant-acceptance-rate-distanceDirectionTimePassengerCoupon.png" alt="Cheap Restaurant Coupon Acceptance Rates by Distance, Direction, Time of Day, Passenger" title="Cheap Restaurant Coupon Acceptance Rates by Distance, Direction, Time of Day, Passenger"/></br>
+
 
 ## 4. Next Steps
 
@@ -142,16 +149,20 @@ From reviewing the feature plots representing occurrences of each's unique value
 * Seek any additional data/correlations to interpolate values for `car`
 * Can the missing data for visits (`CoffeeHouse`, `Restaurant20To50`, `CarryAway`, `RestaurantLessThan20`, `Bar`) be interpolated some correlative means, as statistical interpolation would not be appropriate for the categorical values (converting category values to numerical representation would be incorrect, based on the implied ranges)
 
-### 4.2 Consider Legislative/Regulation Adherence:
+### 4.2 Additional Modeling and Evaluation:
+* Continue to review different (mulitvariate) cohorts for any new insights and recommendations to influence the model's algorithm.
+* Update plotting approach to visualize counts and means for feature values within a single plot to improve visual context for analysis
+* Evaluate different model types for best approach.
+
+### 4.3 Consider Legislative/Regulation Adherence:
 * Review any existing laws within each geographical region this coupon product would target a customer, e.g. [US' "Distracted Driving | Cellphone Use" laws](https://www.ncsl.org/transportation/distracted-driving-cellphone-use#:~:text=Hand%2Dheld%20cellphone%20use%20ban,hand%2Dheld%20cellphones%20while%20driving. "Source: ncsl.org"), indicating 29 states/regions prohibit the use of cell phones while driving
 * Consider adjusting *geo-fencing* whitelist/blacklist to comply with any discovered restrictions, as we can infer it unlikely for a solo customer to *legally* act on a coupon notification while driving. Is there a means to know if the recipient is a non-customer, and therefore may more readily see the coupon offer in a timely manner?
 
-### 4.3 Ethnographic Influences on Coupon Targeting:
+### 4.4 Ethnographic Influences on Coupon Targeting:
 * While target regions for the survey was not indicated in the dataset provided, anonymized **ethnographic information or preferences by region** may be available through other datasets to explore how it may encourage greater coupon acceptance.  
 * For example, a customer known to reside in an area with a high Muslim population (or potentially self-identifies as Muslim) would be inlikely to accept a coupon to a bar.
 
-### 4.4 Modeling and Evaluation:
-* Continue to review different cohorts for any new insights and recommendations to influence the model's algorithm.
-
 ### 4.5 Product/Technology considerations:
 * The analysis suggests most coupons are being delivered to the customer's cell phone after they have passed the coupon's location, adding "going backwards" as a consideration in detouring from the intended travel.  Perhaps the technology and product "geo-fencing" trigger rulesets can be made more efficient to send more coupons "ahead of" the driver's current location (somewhat predictively).
+* Integrate with localized weather feeds, as weather seems to drive acceptance when considering a coupon
+* Review coupon targeting criteria based on bivariate and multivariate analysis and findings to test new cohorts for acceptance performance.
