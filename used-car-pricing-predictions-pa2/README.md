@@ -1,6 +1,7 @@
 # What drives the price of a car?
 
-<img alt="Univariate Analysis - Manufacturer" title="Univariate Analysis - Manufacturer" src="images/crisp.png" style="width: 500px; float: right;"> Inspired by the ***CRISP-DM*** data analysis framework, the following summary uses statistical analysis and visualizations to help our client -- a used car dealership -- by recommending which features in a used car customers value most when making a purchasing decision. These feature recommendations will allow our client to determine which used cars may have quicker sales turnaround, and which may become stagnant inventory, taking up valuable space within their lots. They may also be able to get a recommendation for how to price the car based on it's features.
+<!-- <img alt="Univariate Analysis - Manufacturer" title="Univariate Analysis - Manufacturer" src="images/crisp.png" style="width: 500px; float: right;">  -->
+Inspired by the ***CRISP-DM*** data analysis framework, the following summary uses statistical analysis and visualizations to help our client -- a used car dealership -- by recommending which features in a used car customers value most when making a purchasing decision. These feature recommendations will allow our client to determine which used cars may have quicker sales turnaround, and which may become stagnant inventory, taking up valuable space within their lots. They may also be able to get a recommendation for how to price the car based on it's features.
 
 The summaries and hypotheses indicated below are supported by the raw technical and statistical evaluations found within this [Jupyter Notebook](https://github.com/ard1038/data-analysis/blob/master/used-car-pricing-predictions-pa2/used-car-pricing-pa2.ipynb).
 
@@ -44,17 +45,17 @@ The following actions will be completed in the listed order, as sequence of step
 
 1. ***Unreliable features to cleanse:*** 
     * `VIN` feature's value review indicates that the same specific vehicle (unique VIN) may have been listed in multiple locations, and therefore we cannot rely on `region` or `state` columns when modeling as we're not clear on where it was ultimately sold. 
-    * This observation is confirmed by reviewing number of duplicated records when `region` and `state` fields are dropped, and all others remain as-is, queried by `VIN` value (e.g. "3C6JR6DT3KG560649")
-    * To correct this, for any `VIN` values that occur more than once, only the first one will be retained, the duplicated records will be dropped to preserve the integrity of `region` and `state` features (161,000 duplicate records removed)
+    * This observation is confirmed by reviewing number of duplicated records when `region` and `state` fields are dropped, and all others remain as-is, queried by `VIN` value (e.g. "3C6JR6DT3KG560649").
+    * To correct this, for any `VIN` values that occur more than once, only the first one will be retained, the duplicated records will be dropped to preserve the integrity of `region` and `state` features.
 2. ***Drop records with outliers:***
-    * `price` contains significant outliers that may negatively impact modeling
-    * `odometer` contains significant (and unrealistic) outliers that may negatively impact modeling
+    * `price` contains significant outliers that may negatively impact modeling.
+    * `odometer` contains significant (and unrealistic) outliers that may negatively impact modeling.
 2. ***Unneeded features:*** Drop the `id`, `VIN`, and `model` features:
-    * `id` feature is not valuable for modeling, as it's simply a record identifier
+    * `id` feature is not valuable for modeling, as it's simply a record identifier.
     * `model` feature has over 29k unique values, where it seems a fair amount of variants -- requires heavy sanitization with unclear value thereafter, so dropping the feature for current modeling exercise.
-    * Also dropping `VIN` since by it's definition, it's a unique value, and has 38% of it's values missing
+    * Also dropping `VIN` since by it's definition, it's a unique value, and has 38% of it's values missing.
 3. ***Drop duplicate records***
-    * With `VIN` duplicates resolved above, any remaining duplicate records will be removed now that `id`, `VIN`, and `model` features are no longer holding uniqueness (184 records removed)
+    * With `VIN` duplicates resolved above, any remaining duplicate records will be removed now that `id`, `VIN`, and `model` features are no longer holding uniqueness.
 4. ***Imputing or dropping remaining missing values***: This dataset is missing a significant amount of values across multiple features. 
     * When reviewing the missing value data by impacted features, it seems more desirable to keep as many records intact by imputing values for both numerical and categorical features with missing values.
     * For numerical features, impute missing values with the `median()` value of the feature. Test using `mean()` value for the feature as well, to understand if one supports a more performant model.
