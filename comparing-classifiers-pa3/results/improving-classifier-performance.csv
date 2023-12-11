@@ -1,0 +1,17 @@
+classifier,scoring,train score,test score,cv time,average fit time,best params,relative fit time,scoring error
+Decision Tree,precision,0.8811,0.8801,5.2973,1.2918,"{'clf__max_depth': 2, 'clf__min_impurity_decrease': 0.01, 'clf__min_samples_split': 0.1}",0.0018465605130230547,0.0010000000000000009
+Decision Tree,accuracy,0.8811,0.8801,5.2435,1.3009,"{'clf__max_depth': 2, 'clf__min_impurity_decrease': 0.01, 'clf__min_samples_split': 0.1}",0.001859568486911048,0.0010000000000000009
+Decision Tree,recall,0.8811,0.8801,5.3755,1.3055,"{'clf__max_depth': 2, 'clf__min_impurity_decrease': 0.01, 'clf__min_samples_split': 0.1}",0.0018661439462390448,0.0010000000000000009
+Decision Tree,f1,0.8811,0.8801,5.4549,1.3272,"{'clf__max_depth': 2, 'clf__min_impurity_decrease': 0.01, 'clf__min_samples_split': 0.1}",0.0018971629608950287,0.0010000000000000009
+Logistic Regression,f1,0.8987,0.8967,46.997,15.2122,"{'clf__C': 0.01, 'clf__solver': 'lbfgs'}",0.021745043997684867,0.0020000000000000018
+Logistic Regression,recall,0.8987,0.8967,47.2578,15.3114,"{'clf__C': 0.01, 'clf__solver': 'lbfgs'}",0.021886845207540796,0.0020000000000000018
+Logistic Regression,precision,0.8987,0.8967,48.25,15.6416,"{'clf__C': 0.01, 'clf__solver': 'lbfgs'}",0.022358848831476555,0.0020000000000000018
+Logistic Regression,accuracy,0.8987,0.8967,50.5314,16.372,"{'clf__C': 0.01, 'clf__solver': 'lbfgs'}",0.02340291741694802,0.0020000000000000018
+Support Vector Machines,recall,0.9246,0.8984,509.9336,155.1714,"{'clf__gamma': 0.1, 'clf__kernel': 'rbf'}",0.22180939773223846,0.0262
+Support Vector Machines,accuracy,0.9246,0.8984,510.9031,155.5324,"{'clf__gamma': 0.1, 'clf__kernel': 'rbf'}",0.2223254283447182,0.0262
+Support Vector Machines,f1,0.9246,0.8984,510.8214,155.5568,"{'clf__gamma': 0.1, 'clf__kernel': 'rbf'}",0.22236030686811017,0.0262
+Support Vector Machines,precision,0.9246,0.8984,511.2974,155.631,"{'clf__gamma': 0.1, 'clf__kernel': 'rbf'}",0.22246637188596613,0.0262
+K-Nearest Neighbors,accuracy,0.9317,0.8808,160.1257,2.4705,"{'clf__n_neighbors': 3, 'clf__p': 1, 'clf__weights': 'uniform'}",0.003531450493438192,0.050899999999999945
+K-Nearest Neighbors,precision,0.9317,0.8808,162.3843,2.4759,"{'clf__n_neighbors': 3, 'clf__p': 1, 'clf__weights': 'uniform'}",0.0035391695109101887,0.050899999999999945
+K-Nearest Neighbors,recall,0.9317,0.8808,163.7321,2.48,"{'clf__n_neighbors': 3, 'clf__p': 1, 'clf__weights': 'uniform'}",0.003545030246398185,0.050899999999999945
+K-Nearest Neighbors,f1,0.9317,0.8808,162.8968,2.4903,"{'clf__n_neighbors': 3, 'clf__p': 1, 'clf__weights': 'uniform'}",0.003559753557502178,0.050899999999999945
