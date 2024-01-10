@@ -1,0 +1,4 @@
+classifier,scoring,train score,test score,train mse,test mse,cv time,average fit time,best params,scoring error,relative fit time
+Logistic Regression,precision,0.6808,0.6706,0.3192,0.3294,26699.5598,8735.5313,"{'clf__C': 1, 'clf__solver': 'newton-cg'}",0.010199999999999987,0.8707265253099473
+Random Forest,precision,0.6607,0.6416,0.3393,0.3584,3752.1208,1167.8303,"{'clf__criterion': 'gini', 'clf__max_depth': 10, 'clf__min_samples_split': 0.05, 'clf__n_estimators': 50}",0.019100000000000006,0.11640514862223358
+Decision Tree,precision,0.5804,0.5182,0.4196,0.4818,446.3888,129.101,"{'clf__max_depth': 2, 'clf__min_impurity_decrease': 0.01, 'clf__min_samples_split': 0.1}",0.06220000000000003,0.012868326067819081

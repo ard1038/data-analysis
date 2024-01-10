@@ -1,0 +1,5 @@
+classifier,scoring,train score,test score,train mse,test mse,cv time,average fit time,best params
+Dummy Classifier,,0.6667,0.9707,0.3333,0.0293,,0.0197,
+Logistic Regression,,0.6808,0.6706,0.3192,0.3294,,242.4152,
+Decision Tree,,1.0,0.9504,0.0,0.0496,,32.0066,
+Random Forest,,1.0,0.9674,0.0,0.0326,,296.0014,
