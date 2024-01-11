@@ -1,4 +1,8 @@
-classifier,scoring,train score,test score,train mse,test mse,cv time,average fit time,best params,scoring error,relative fit time
-Logistic Regression,precision,0.6808,0.6706,0.3192,0.3294,26699.5598,8735.5313,"{'clf__C': 1, 'clf__solver': 'newton-cg'}",0.010199999999999987,0.8707265253099473
-Random Forest,precision,0.6607,0.6416,0.3393,0.3584,3752.1208,1167.8303,"{'clf__criterion': 'gini', 'clf__max_depth': 10, 'clf__min_samples_split': 0.05, 'clf__n_estimators': 50}",0.019100000000000006,0.11640514862223358
-Decision Tree,precision,0.5804,0.5182,0.4196,0.4818,446.3888,129.101,"{'clf__max_depth': 2, 'clf__min_impurity_decrease': 0.01, 'clf__min_samples_split': 0.1}",0.06220000000000003,0.012868326067819081
+classifier,scoring,train score,test score,train mse,test mse,cv time,average fit time,best params,relative fit time,scoring error
+Random Forest,precision,0.6646,0.6555,0.3354,0.3445,3749.6499,1159.1538,"{'clf__criterion': 'entropy', 'clf__max_depth': 10, 'clf__min_samples_split': 0.05, 'clf__n_estimators': 100}",0.09970744178587,0.009099999999999997
+Logistic Regression,precision,0.6785,0.6684,0.3215,0.3316,29408.9737,9793.4083,"{'clf__C': 0.1, 'clf__solver': 'liblinear'}",0.8424039052949712,0.010099999999999998
+Logistic Regression,,0.6786,0.6682,0.3214,0.3318,,220.5126,,0.018967929214872812,0.010399999999999965
+Random Forest,,1.0,0.9671,0.0,0.0329,,293.7955,,0.025271536627150402,0.03290000000000004
+Decision Tree,,1.0,0.9507,0.0,0.0493,,31.0838,,0.0026737488838699626,0.04930000000000001
+Decision Tree,precision,0.5793,0.5209,0.4207,0.4791,440.1399,127.5745,"{'clf__max_depth': 2, 'clf__min_impurity_decrease': 0.01, 'clf__min_samples_split': 0.1}",0.01097363182703751,0.05840000000000001
+Dummy Classifier,,0.6667,0.971,0.3333,0.029,,0.021,,1.8063662281081857e-06,0.3043
